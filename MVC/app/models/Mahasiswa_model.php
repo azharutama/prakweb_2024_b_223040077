@@ -4,45 +4,26 @@ class Mahasiswa_model
 {
 
 
-  //   [
-  //     "nama" => "azhar",
-  //     "nrp" => "223040077",
-  //     "email" => "azhar@gmail.com",
-  //     "jurusan" => "informatika"
-
-  //   ],
-  //   [
-  //     "nama" => "azhar",
-  //     "nrp" => "223040077",
-  //     "email" => "azhar@gmail.com",
-  //     "jurusan" => "informatika"
-  //   ],
-  //   [
-  //     "nama" => "azhar",
-  //     "nrp" => "223040077",
-  //     "email" => "azhar@gmail.com",
-  //     "jurusan" => "informatika"
-  //   ]
-  // ];
-
-  private $dbh;
-  private $stmt;
+  private $table = 'mahasiswa';
+  private $db;
 
   public function __construct()
   {
-    $dsn = 'mysql:host=localhost;dbname=mvc';
-    try {
-      $this->dbh = new PDO($dsn, 'root', '');
-    } catch (PDOException $e) {
-      die($e->getMessage());
-    }
+
+    $this->db = new Database;
   }
 
   public function getAllMahasiswa()
   {
-    $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
-    $this->stmt->execute();
 
-    return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    $this->db->query('SELECT * FROM ' . $this->table);
+    return $this->db->resultSet();
+  }
+
+  public function getMahasiswaById($id)
+  {
+    $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id= :id');
+    $this->db->bind('id', $id);
+    return $this->db->single();
   }
 }
