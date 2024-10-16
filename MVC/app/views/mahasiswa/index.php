@@ -2,6 +2,11 @@
 
   <div class="row">
     <div class="col-6">
+      <button type="button" class="btn btn-dark mb-5 mt-5" data-bs-toggle="modal" data-bs-target="#formModal">
+        Tambah Mahasiswa
+      </button>
+      <br>
+
       <h3>Daftar Mahasiswa</h3>
 
 
@@ -20,4 +25,50 @@
     </div>
   </div>
 
+</div>
+
+
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="judulModal">Tambah data mahasiswa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="masukan nama..">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nrp</label>
+            <input type="number" class="form-control" id="nrp" name="nrp" placeholder="masukan nrp..">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="masukan email..">
+          </div>
+
+          <div class="form-group">
+            <label class="form-control" id="jurusan" name="jurusan">Jurusan</label>
+            <select type="text" class="form-control" id="jurusan" name="jurusan">
+              <option value="Teknik Informatika"> teknik informatika</option>
+              <option value="Teknik Mesin"> teknik mesin</option>
+              <option value="Teknik "> teknik lingkungan</option>
+              <option value="Teknik "> teknik industri</option>
+              <option value="Teknik "> teknik planologi</option>
+              <option value="Teknik "> teknik pangan</option>
+            </select>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Tambah data</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
