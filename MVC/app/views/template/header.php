@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=\, initial-scale=1.0">
   <title>Halaman <?= $data['judul']; ?></title>
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/bootstrap.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 <body>
